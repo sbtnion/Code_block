@@ -1,0 +1,32 @@
+body { font-family: sans-serif; background: #f0f2f5; margin: 0; }
+.app-container { display: flex; height: 100vh; }
+
+.toolbox { width: 300px; background: #fff; border-right: 2px solid #ccc; padding: 15px; overflow-y: auto; }
+.toolbox h3 { margin-top: 0; color: #333; }
+
+.main-panel { flex-grow: 1; display: flex; flex-direction: column; padding: 15px; }
+.workspace { flex-grow: 1; background: #fafafa; border: 2px dashed #bbb; border-radius: 8px; padding: 20px; overflow-y: auto; }
+
+.block { 
+    background: white; border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; 
+    border-radius: 4px; cursor: move; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+}
+.block input { padding: 4px; border: 1px solid #ccc; border-radius: 3px; width: 70px; }
+
+.declare { border-left: 6px solid #4a90e2; }
+.assign { border-left: 6px solid #f5a623; }
+.if { border-left: 6px solid #7ed321;}
+.cond-op{ border: 1px solid #ccc; border-radius: 3px;}
+
+.sub-blocks { 
+    width: 100%; min-height: 40px; margin-top: 10px; padding-left: 20px;
+    background: rgba(0,0,0,0.03); border: 1px dashed #ccc; box-sizing: border-box;
+}
+
+.controls { margin-bottom: 15px;  }
+#run-btn { background: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+#run-btn:hover { background: #218838; }
+
+#rel-btn { background: #a72828; color: white; border: none; padding: 7px 10px; border-radius: 4px; cursor: pointer; }
+#rel-btn:hover { background: #882121; }

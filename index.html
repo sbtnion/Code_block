@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeBlock Web</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="toolbox" id="toolbox">
+        <h3>Блоки</h3>
+
+        <div class="block declare" draggable="true" data-type="declare">
+            <span>Создать целые:</span>
+            <input type="text" class="var-names" placeholder="x, y, a">
+        </div>
+
+        <div class="block assign" draggable="true" data-type="assign">
+            <input type="text" class="var-target" placeholder="x">
+            <span>=</span>
+            <input type="text" class="expression" placeholder="5 + y * 2">
+        </div>
+
+        <div class="block if" draggable="true" data-type="if">
+            <div class="if-condition">
+                <span>Если</span>
+                <input type="text" class="cond-left" placeholder="x">
+                <select class="cond-op">
+                    <option value=">">></option>
+                    <option value="<"><</option>
+                    <option value="=">=</option>
+                    <option value="!=">!=</option>
+                </select>
+                <input type="text" class="cond-right" placeholder="10">
+            </div>
+            <div class="sub-blocks" data-container="true">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="main-panel">
+        <div class="controls">
+            <button id="run-btn">Запустить алгоритм</button>
+            <button id="rel-btn" onclick="location.reload()">Очистить всё</button>
+        </div>
+        <div id="workspace" class="workspace" data-container="true">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
