@@ -20,6 +20,12 @@ export const Interpreter = {
                     data.rightExpr = block.querySelector('.cond-right').value;
                     data.subProgram = this.parseBlocks(block.querySelector('.sub-blocks'));
                     break
+                case 'while':
+                    data.leftExpr = block.querySelector('.cond-left').value;
+                    data.op = block.querySelector('.cond-op').value;
+                    data.rightExpr = block.querySelector('.cond-right').value;
+                    data.subProgram = this.parseBlocks(block.querySelector('.sub-blocks'));
+                    break
             }
             return data;
         });
@@ -46,6 +52,20 @@ export const Interpreter = {
                         case '!=': condition = left !== right; break;
                     }
                     if (condition) await this.run(node.subProgram);
+                    break;
+                case 'while':
+                    let conditionN = true;
+                    while (conditionN){
+                        const leftN = Calculator.evaluate(node.leftExpr);
+                        const rightN = Calculator.evaluate(node.rightExpr);
+                        switch (node.op) {
+                            case '>': conditionN = leftN > rightN; break;
+                            case '<': conditionN = leftN < rightN; break;
+                            case '=': conditionN = leftN === rightN; break;
+                            case '!=': conditionN = leftN !== rightN; break;
+                        }
+                        if(conditionN) await this.run(node.subProgram)
+                    };
                     break;
             }
         }
